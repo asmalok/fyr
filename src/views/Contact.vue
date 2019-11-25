@@ -96,13 +96,15 @@ export default {
           )
           .then(() => {
             swal({
-              title: "Added to cart",
+              title: "Message sent!",
               icon: "success",
               button: "Close"
+            }).then(()=>{
+              this.$router.push("/products")
             });
           })
           .catch(error => {
-            console.log("Error adding products: ", error);
+            console.log("Error sending message, please try again!: ", error);
           });
       }
     }
