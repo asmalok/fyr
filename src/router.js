@@ -1,6 +1,13 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
+import About from "./views/About.vue";
+import Contact from "./views/Contact.vue";
+import Products from "./views/Products.vue";
+import ProductDetail from "./views/ProductDetail.vue";
+import HowItWorks from "./views/HowItWorks.vue";
+import AddProduct from "./views/AddProduct.vue";
+import ShoppingCart from "./views/ShoppingCart";
 
 Vue.use(Router);
 
@@ -16,11 +23,37 @@ export default new Router({
     {
       path: "/about",
       name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
+      component: About
+    },
+    {
+      path: "/contact",
+      name: "contact",
+      component: Contact
+    },
+    {
+      path: "/products",
+      name: "products",
+      component: Products
+    },
+    {
+      path: "/howitworks",
+      name: "howitworks",
+      component: HowItWorks
+    },
+    {
+      path: "/products/:id",
+      name: "products",
+      component: ProductDetail
+    },
+    {
+      path: "/add_product",
+      name: "add_product",
+      component: AddProduct
+    },
+    {
+      path: "/shopping_cart",
+      name: "shopping_cart",
+      component: ShoppingCart
     }
   ]
 });
