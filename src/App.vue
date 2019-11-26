@@ -2,8 +2,8 @@
   <v-app>
     <Header />
     <div class="primary">
-      <v-content class="ma-5">
-        <router-view class="ma-5" />
+      <v-content app>
+        <router-view />
       </v-content>
     </div>
     <Footer />

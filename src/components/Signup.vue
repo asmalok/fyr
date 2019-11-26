@@ -1,33 +1,34 @@
 <template>
   <v-form v-model="valid" class="primary">
     <v-container>
-      <v-row>
-        <v-col cols="12" md="4">
+      <v-row align="center" justify="center">
+        <v-col cols="10">
           <v-text-field
-            v-model="firstname"
+            v-model="Name"
             :rules="nameRules"
-            :counter="10"
-            label="First name"
+            label="Name"
+            color="black"
             required
           ></v-text-field>
-        </v-col>
 
-        <v-col cols="12" md="4">
-          <v-text-field
-            v-model="lastname"
-            :rules="nameRules"
-            :counter="10"
-            label="Last name"
-            required
-          ></v-text-field>
-        </v-col>
-
-        <v-col cols="12" md="4">
           <v-text-field
             v-model="email"
             :rules="emailRules"
             label="E-mail"
+            color="black"
             required
+          ></v-text-field>
+
+          <v-text-field
+            :value="password"
+            label="Password"
+            hint="At least 8 characters"
+            :append-icon="value ? 'mdi-eye' : 'mdi-eye-off'"
+            @click:append="() => (value = !value)"
+            :type="value ? 'password' : 'text'"
+            :passwordRules="[rules.password]"
+            @input="_ => (password = _)"
+            color="black"
           ></v-text-field>
         </v-col>
       </v-row>
@@ -45,17 +46,25 @@
 export default {
   data: () => ({
     valid: false,
-    firstname: "",
-    lastname: "",
-    nameRules: [
-      v => !!v || "Name is required",
-      v => v.length <= 10 || "Name must be less than 10 characters"
-    ],
+    name: "",
+    nameRules: [v => !!v || "Name is required"],
     email: "",
     emailRules: [
       v => !!v || "E-mail is required",
       v => /.+@.+/.test(v) || "E-mail must be valid"
-    ]
+    ],
+    password: "",
+    value: true,
+    rules: {
+      required: value => !!value || "Required.",
+      password: value => {
+        const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
+        return (
+          pattern.test(value) ||
+          "Min. 8 characters with at least one capital letter, and a number."
+        );
+      }
+    }
   })
 };
 </script>

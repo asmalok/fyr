@@ -94,12 +94,13 @@
         </v-btn>
         <v-btn text @click="handleClick('/shopping_cart')">
           <!-- <v-icon small @click="handleClick('/shopping_cart')">fas fa-shopping-cart</v-icon> -->
-          <v-badge left color="red" v-model="show">
+          <v-badge v-if="shopping_cart_items" left color="red" v-model="show">
             <template v-slot:badge>
-              <span>{{ $store.state.shopping_cart_items }}</span>
+              <span>{{ shopping_cart_items }}</span>
             </template>
             <v-icon small>fas fa-shopping-cart</v-icon>
           </v-badge>
+          <v-icon v-else small>fas fa-shopping-cart</v-icon>
         </v-btn>
       </div>
 
@@ -139,7 +140,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(["showSignUpForm"])
+    ...mapState(["showSignUpForm", "shopping_cart_items"])
   },
   mounted() {
     if (this.$store.state.shopping_cart_items === 0) {

@@ -1,11 +1,12 @@
 <template>
   <div>
-    <v-card flat dark>
+    <v-card flat>
       <v-card-title>
         <v-text-field
           v-model="search"
           append-icon="fas fa-search"
           label="Search"
+          color="black"
         ></v-text-field>
       </v-card-title>
     </v-card>

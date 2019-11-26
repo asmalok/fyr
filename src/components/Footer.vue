@@ -1,5 +1,5 @@
 <template>
-  <v-footer height="auto" class="grey">
+  <v-footer app height="auto" class="grey">
     <v-row>
       <v-col class="text-center" cols="12">
         {{ new Date().getFullYear() }}

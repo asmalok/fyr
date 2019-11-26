@@ -6,17 +6,12 @@
       height="200px"
       :src="product_image"
       :lazy-src="product_image"
-    >
-    </v-img>
+    ></v-img>
     <v-card-title class="justify-center">{{ product_name }}</v-card-title>
 
     <v-card-text>
-      <span>{{ product_price }}</span>
+      <span>${{ product_price }}/month</span>
     </v-card-text>
-
-    <v-card-actions class="justify-center">
-      <v-btn text color="red">Overview</v-btn>
-    </v-card-actions>
   </v-card>
 </template>
 
