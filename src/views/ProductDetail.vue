@@ -15,6 +15,7 @@
 <script>
 import swal from "sweetalert";
 import db from "../components/firebaseInit";
+import { mapState } from "vuex";
 
 export default {
   data() {
@@ -27,7 +28,9 @@ export default {
       type: ""
     };
   },
-  computed: {},
+  computed: {
+    ...mapState(["uid"])
+  },
   created() {
     db.collection("products")
       .orderBy("name")
@@ -47,17 +50,17 @@ export default {
   },
   methods: {
     addToCart() {
+      const product_id = this.$route.params.id;
+      const name = this.name;
       db.collection("shopping_cart")
-        .add({
-          name: this.name,
-          image: this.images[0],
-          price: this.price,
-          description: this.description,
-          category: this.category,
-          type: this.type
+        .doc(this.uid)
+        .collection("products")
+        .doc(product_id)
+        .set({
+          name: name
         })
         .then(product_status => {
-          console.log("Product added to database: ", product_status.id);
+          console.log("Product added to database: ", product_status);
           swal({
             title: "Added to cart",
             icon: "success",

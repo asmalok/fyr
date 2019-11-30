@@ -1,16 +1,18 @@
 <template>
   <div>
-    <v-card flat>
-      <v-card-title>
+    <v-card flat class="pa-5" color="transparent">
+      <v-row align="center" justify="center">
+        <v-col sm="12" md="6">
         <v-text-field
           v-model="search"
           append-icon="fas fa-search"
           label="Search"
           color="black"
         ></v-text-field>
-      </v-card-title>
+        </v-col>
+      </v-row>
     </v-card>
-    <v-layout row wrap>
+    <v-layout row wrap class="mx-auto">
       <v-flex lg4 md6 sm6 xs12 v-for="(product, i) in filtereProducts" :key="i">
         <span v-if="product.images[0] !== undefined">
           <router-link :to="'/products/' + product.id">

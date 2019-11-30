@@ -23,7 +23,7 @@ export default {
           src: "https://p.rmjo.in/moodShot/wyllw4rl-1024x512.jpg"
         },
         {
-          src: "https://p.rmjo.in/moodShot/wd6rdybo-1024x512.jpg"
+          src: "https://d26iwjla857pn6.cloudfront.net/beorn/hiw/hero.jpg"
         },
         {
           src: "https://p.rmjo.in/moodShot/6a57j56c-1024x512.jpg"

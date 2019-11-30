@@ -8,6 +8,7 @@ import ProductDetail from "./views/ProductDetail.vue";
 import HowItWorks from "./views/HowItWorks.vue";
 import AddProduct from "./views/AddProduct.vue";
 import ShoppingCart from "./views/ShoppingCart";
+import Checkout from "./views/Checkout.vue";
 
 Vue.use(Router);
 
@@ -54,6 +55,11 @@ export default new Router({
       path: "/shopping_cart",
       name: "shopping_cart",
       component: ShoppingCart
+    },
+    {
+      path: "/checkout",
+      name: "checkout",
+      component: Checkout
     }
   ]
 });
