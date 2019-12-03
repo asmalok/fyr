@@ -11,8 +11,17 @@ async function charge(amount, token) {
   const charge = await stripe.charges.create({
     amount: amount,
     currency: "cad",
-    description: "Example charge",
+    // description: "Example charge",
     source: token
   });
   return charge;
 }
+exports.CreateCustomer = functions.https.onRequest(async (req, res) => {
+  const token = req.body.stripeToken; // Using Express
+  const email = req.body.email;
+  const customer = await stripe.customers.create({
+    source: token,
+    email: email,
+  });
+  res.json(customer)
+});
