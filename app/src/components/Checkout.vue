@@ -2,7 +2,7 @@
   <v-card class="pa-5 ma-5" color="transparent" flat>
     <DeliveryAddress class="ma-5" />
     <div>
-      <form action="/charge" method="post" id="payment-form">
+      <form  method="post" id="payment-form">
         <div class="form-row">
           <label for="card-element">Credit or debit card</label>
           <div id="card-element">
@@ -13,7 +13,7 @@
           <div id="card-errors" role="alert"></div>
         </div>
 
-        <v-btn class="mt-3" rounded color="rgba(0,0,0,0.8)" dark
+        <v-btn class="mt-3" type="submit" rounded color="rgba(0,0,0,0.8)" dark
           >Submit Payment</v-btn
         >
       </form>
@@ -55,7 +55,7 @@
 import db from "firebase";
 import DeliveryAddress from "./DeliveryAddress";
 import { mapState } from "vuex";
-import Stripe from "stripe";
+import axios from 'axios'
 export default {
   components: {
     DeliveryAddress
@@ -115,8 +115,10 @@ export default {
           // Inform the user if there was an error.
           var errorElement = document.getElementById("card-errors");
           errorElement.textContent = result.error.message;
+          console.log(result.error)
         } else {
           // Send the token to your server.
+          console.log(result.token)
           THIS.stripeTokenHandler(result.token);
         }
       });
@@ -124,12 +126,16 @@ export default {
   },
   methods: {
     stripeTokenHandler(token) {
-      db.firestore()
-        .collection("payments")
-        .doc(this.uid)
-        .set({
-          token
-        });
+      console.log(token)
+      axios.post('https://us-central1-fyr-backend.cloudfunctions.net/CreateCustomer', {token:token, email:'test@test.com'}).then(res => {
+        console.log(res)
+      })
+      // db.firestore()
+      //   .collection("payments")
+      //   .doc(this.uid)
+      //   .set({
+      //     token
+      //   });
 
       // Token is created using Stripe Checkout or Elements!
       // Get the payment token ID submitted by the form:
