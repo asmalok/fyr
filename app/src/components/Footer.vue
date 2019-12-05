@@ -1,3 +1,8 @@
+<!-- Component name: 
+     Used in:
+     Description: 
+ -->
+
 <template>
 <div class="mt-10 pt-10">
   <v-footer color="rgba(0,0,0,0.8)" dark absolute>

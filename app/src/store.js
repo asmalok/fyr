@@ -13,13 +13,13 @@ export default new Vuex.Store({
     logged_in: false,
     total_amount: 0,
     address: {
-       apt_number: null,
-            street_name: null,
-            city: null,
-            postal_code: null,
-            province: null,
-            country: null,
-            phone: null
+      apt_number: null,
+      street_name: null,
+      city: null,
+      postal_code: null,
+      province: null,
+      country: null,
+      phone: null
     }
   },
   mutations: {
@@ -55,7 +55,8 @@ export default new Vuex.Store({
           allProducts.forEach(product => {
             db.collection("products")
               .doc(product.id)
-              .get().then(product => {
+              .get()
+              .then(product => {
                 const data = {
                   id: product.id,
                   name: product.data().name,
@@ -67,8 +68,8 @@ export default new Vuex.Store({
                 };
                 array.push(data);
               });
-            });
-            context.commit("GET_CART", array);
+          });
+          context.commit("GET_CART", array);
         });
     },
     getAddress({ commit }, user_id) {

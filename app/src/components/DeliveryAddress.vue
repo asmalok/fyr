@@ -1,3 +1,10 @@
+<!-- Component name: DeliveryAddress
+     Used in: /views/Checkout.vue
+     Description: This is a dialog box that is used to add/edit the delivery address of the user.
+     Once submitted, the address is added into the database for that particular user. At this point,
+     only one address can be added for a user. 
+ -->
+
 <template>
   <div>
     <v-dialog width="500" v-model="dialog">

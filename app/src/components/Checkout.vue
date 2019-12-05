@@ -1,3 +1,10 @@
+<!-- Component name: Checkout
+     Used in: /views/Checkout.vue
+     Description: This component handles the stripe front-end credit card payment. It sends
+     the relavent information to the stripe back-end so the amount can be taken out of the 
+     verified email. 
+ -->
+
 <template>
   <v-card class="ma-5" flat>
     <div>
@@ -123,7 +130,7 @@ export default {
       axios
         .post(
           "https://us-central1-fyr-backend.cloudfunctions.net/CreateCustomer",
-          { token: token.id, email: db.auth().currentUser.email }
+          { token: token, email: db.auth().currentUser.email }
         )
         .then(res => {
           console.log(res);

@@ -2,56 +2,52 @@
   <v-card flat class="pb-5" color="primary">
     <v-img
       src="https://d24xw9xsv7y3uu.cloudfront.net/JjzlElfB_tablet_pico_1bhk_desktop.jpg"
-      height="600"
+      height="400"
     ></v-img>
-    <v-card class="negative-margin pa-10" flat>
-      <v-row class="text-center">
-        <v-col sm="12" md="6" class="pa-10">
+    <v-card class="pa-10" flat>
+      <v-card-title class="justify-center">4 simple steps to make your house a home!</v-card-title>
+      <v-layout row wrap class="mx-auto text-center">
+        <v-flex md6 sm12 xs12 class="pa-10">
           <div>
-            <v-icon size="200" color="#ab5f26">fas fa-couch fa-10x</v-icon>
+            <v-icon size="150" color="#ffdfba">fas fa-couch fa-10x</v-icon>
+          <br>1. Pick the products you want
           </div>
-          Step 1. Choose the product that fits your interest
-        </v-col>
-        <v-col sm="12" md="6" class="pa-10">
+        </v-flex>
+        <v-flex md6 sm12 xs12 class="pa-10">
           <div>
-            <v-icon size="200" color="#1b7094">fas fa-shopping-cart</v-icon>
+            <v-icon size="150" color="#bae1ff">fas fa-shopping-cart</v-icon>
+          <br>2. Sign in and add them to your cart
           </div>
-          Step 2. Sign/create an account to add it to your cart
-        </v-col>
-        <v-col sm="12" md="6" class="pa-10">
+        </v-flex>
+        <v-flex md6 sm12 xs12 class="pa-10">
           <div>
-            <v-icon size="200" color="#cfbf17">far fa-credit-card</v-icon>
+            <v-icon size="150" color="#baffc9">far fa-credit-card</v-icon>
+          <br>3. Once you're ready, checkout
           </div>
-          Step 3. Checkout
-        </v-col>
-        <v-col sm="12" md="6" class="pa-10">
+        </v-flex>
+        <v-flex md6 sm12 xs12 class="pa-10">
           <div>
-            <v-icon size="200" color="#b52626">fas fa-truck-moving</v-icon>
+            <v-icon size="150" color="#ffb3ba">fas fa-truck-moving</v-icon>
+          <br>4. The product will be delivered to your door!
           </div>
-          Step 4. We deliever the product to your door!
-        </v-col>
-      </v-row>
+        </v-flex>
+      </v-layout>
     </v-card>
   </v-card>
 </template>
 
 <script>
-import Services from "@/components/Services.vue";
-
 export default {
-  components: {
-    Services
-  },
   mounted() {
-    window.scroll(0,0)
+    window.scroll(0, 0);
   }
 };
 </script>
 
 <style scoped>
-.negative-margin {
+/* .negative-margin {
   margin-top: -150px;
   margin-right: 100px;
   margin-left: 100px;
-}
+} */
 </style>

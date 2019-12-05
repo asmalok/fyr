@@ -2,15 +2,17 @@
   <v-card flat class="text-center ma-10" color="transparent">
     <v-carousel :show-arrows="true" hide-delimiters show-arrows-on-hover>
       <v-carousel-item v-for="(item, i) in images" :key="i">
-        <img :src="item" alt contain />
+        <v-layout row wrap>
+          <v-flex xs12>
+            <img :src="item"  />
+          </v-flex>
+        </v-layout>
       </v-carousel-item>
     </v-carousel>
     <p>{{ name }}</p>
     <p>${{ price }}/month</p>
     <p>{{ description }}</p>
-    <v-btn rounded color="rgba(0,0,0,0.8)" dark @click="addToCart"
-      >Add to cart</v-btn
-    >
+    <v-btn rounded color="rgba(0,0,0,0.8)" dark @click="addToCart">Add to cart</v-btn>
   </v-card>
 </template>
 
@@ -34,7 +36,7 @@ export default {
     ...mapState(["uid"])
   },
   mounted() {
-    window.scroll(0,0)
+    window.scroll(0, 0);
   },
   created() {
     db.collection("products")
@@ -75,7 +77,7 @@ export default {
         .catch(error => {
           console.log("Error adding products: ", error);
         });
-        this.$store.dispatch('getCart', this.uid)
+      this.$store.dispatch("getCart", this.uid);
     }
   }
 };

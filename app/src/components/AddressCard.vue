@@ -1,3 +1,8 @@
+<!-- Component name: AddressCard
+     Used in: /views/Checkout.vue
+     Description: This component is a card that shows the current delivery address of the user. 
+ -->
+
 <template>
   <v-card max-width="344" class="mb-5" > 
     <!-- v-if="$store.state.address != '{}'" -->
