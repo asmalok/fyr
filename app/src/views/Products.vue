@@ -12,21 +12,27 @@
         </v-col>
       </v-row>
     </v-card>
-    <v-container >
-    <v-row wrap>
-      <v-col sm="6" lg="4" xs="12" v-for="(product, i) in filtereProducts" :key="i">
-        <span v-if="product.images[0] !== undefined">
-          <router-link :to="'/products/' + product.id">
-            <ProductCard
-              :product_name="product.name"
-              :product_image="product.images[0]"
-              :product_price="product.price"
-              class="ma-3"
-            />
-          </router-link>
-        </span>
-      </v-col>
-    </v-row>
+    <v-container>
+      <v-row wrap>
+        <v-col
+          sm="6"
+          lg="4"
+          xs="12"
+          v-for="(product, i) in filtereProducts"
+          :key="i"
+        >
+          <span v-if="product.images[0] !== undefined">
+            <router-link :to="'/products/' + product.id">
+              <ProductCard
+                :product_name="product.name"
+                :product_image="product.images[0]"
+                :product_price="product.price"
+                class="ma-3"
+              />
+            </router-link>
+          </span>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>

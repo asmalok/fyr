@@ -4,7 +4,13 @@
       <v-container>
         <v-row align="center" justify="center">
           <v-col cols="10">
-            <v-text-field v-model="email" :rules="emailRules" label="E-mail" color="black" required></v-text-field>
+            <v-text-field
+              v-model="email"
+              :rules="emailRules"
+              label="E-mail"
+              color="black"
+              required
+            ></v-text-field>
             <v-text-field
               name="password"
               label="Password"
@@ -18,8 +24,16 @@
             ></v-text-field>
           </v-col>
         </v-row>
-        <v-btn color="rgba(0,0,0,0.8)" rounded text @click="$store.commit('SHOW_SIGNIN_FORM')">Close</v-btn>
-        <v-btn color="rgba(0,0,0,0.8)" rounded text type="submit">Sign in</v-btn>
+        <v-btn
+          color="rgba(0,0,0,0.8)"
+          rounded
+          text
+          @click="$store.commit('SHOW_SIGNIN_FORM')"
+          >Close</v-btn
+        >
+        <v-btn color="rgba(0,0,0,0.8)" rounded text type="submit"
+          >Sign in</v-btn
+        >
       </v-container>
     </v-form>
   </v-card>
@@ -48,10 +62,10 @@ export default {
         .signInWithEmailAndPassword(this.email, this.password)
         .then(
           user => {
-          swal({
-            title: "Signed in",
-            button: "Close"
-          });
+            swal({
+              title: "Signed in",
+              button: "Close"
+            });
             this.$router.go();
             this.$store.commit("SHOW_SIGNIN_FORM");
           },

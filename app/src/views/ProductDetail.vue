@@ -1,16 +1,29 @@
 <template>
-  <v-card flat class="text-center ma-10 mx-auto" color="transparent" max-width="700">
+  <v-card
+    flat
+    class="text-center ma-10 mx-auto"
+    color="transparent"
+    max-width="700"
+  >
     <v-layout justify-center align-center>
       <v-flex>
-        <v-carousel :show-arrows="true" hide-delimiters show-arrows-on-hover height="600" class="height-small">
-          <v-carousel-item v-for="(item, i) in images" :key="i" >
+        <v-carousel
+          :show-arrows="true"
+          hide-delimiters
+          show-arrows-on-hover
+          height="600"
+          class="height-small"
+        >
+          <v-carousel-item v-for="(item, i) in images" :key="i">
             <v-img :src="item"></v-img>
           </v-carousel-item>
         </v-carousel>
         <p>{{ name }}</p>
         <p>${{ price }}/month</p>
         <p>{{ description }}</p>
-        <v-btn rounded color="rgba(0,0,0,0.8)" dark @click="addToCart">Add to cart</v-btn>
+        <v-btn rounded color="rgba(0,0,0,0.8)" dark @click="addToCart"
+          >Add to cart</v-btn
+        >
       </v-flex>
     </v-layout>
   </v-card>
@@ -85,8 +98,8 @@ export default {
 
 <style scoped>
 @media only screen and (max-width: 425px) {
-.height-small{
-  height: 300px !important;
-}
+  .height-small {
+    height: 300px !important;
+  }
 }
 </style>

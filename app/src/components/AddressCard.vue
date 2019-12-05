@@ -4,15 +4,17 @@
  -->
 
 <template>
-  <v-card max-width="344" class="mb-5" > 
+  <v-card max-width="344" class="mb-5">
     <!-- v-if="$store.state.address != '{}'" -->
     <v-card-text>
       <p class="black--text">
         <span class="font-weight-bold">Delivery Address</span>
-        <br />{{address.apt_number}}, {{address.street_name}}
-        <br />{{address.city}}, {{address.province}}, {{address.postal_code}}
-        <br />{{address.country}}
-        <br />{{address.phone}}
+        <br />{{ address.apt_number }}, {{ address.street_name }} <br />{{
+          address.city
+        }}, {{ address.province }}, {{ address.postal_code }} <br />{{
+          address.country
+        }}
+        <br />{{ address.phone }}
       </p>
     </v-card-text>
     <!-- <v-card-actions>
