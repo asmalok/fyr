@@ -9,7 +9,7 @@
   <div>
     <v-dialog width="500" v-model="dialog">
       <template v-slot:activator="{ on }">
-        <v-btn rounded color="rgba(0,0,0,0.8)" dark v-on="on">Create Delivery Address</v-btn>
+        <v-btn rounded color="rgba(0,0,0,0.8)" dark v-on="on">Edit Delivery Address</v-btn>
       </template>
       <v-form v-model="valid" class="grey" @submit.prevent="saveAddress" ref="form">
         <v-card primary class="pa-5">

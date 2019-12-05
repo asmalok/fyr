@@ -1,5 +1,5 @@
 <template>
-  <v-card class="text-center" max-width="300" hover flat color="transparent">
+  <v-card class="text-center" hover flat color="transparent">
     <v-img
       class="white--text"
       height="200px"

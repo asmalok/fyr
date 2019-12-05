@@ -13,13 +13,13 @@ export default new Vuex.Store({
     logged_in: false,
     total_amount: 0,
     address: {
-      apt_number: null,
-      street_name: null,
-      city: null,
-      postal_code: null,
-      province: null,
-      country: null,
-      phone: null
+      apt_number: "Apt no.",
+      street_name: "St. Name",
+      city: "City",
+      postal_code: "Postal/Zip",
+      province: "Province",
+      country: "Country",
+      phone: "Phone"
     }
   },
   mutations: {

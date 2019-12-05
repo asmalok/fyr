@@ -12,8 +12,9 @@
         </v-col>
       </v-row>
     </v-card>
-    <v-layout row wrap class="mx-auto">
-      <v-flex lg4 md6 sm6 xs12 v-for="(product, i) in filtereProducts" :key="i">
+    <v-container >
+    <v-row wrap>
+      <v-col sm="6" lg="4" xs="12" v-for="(product, i) in filtereProducts" :key="i">
         <span v-if="product.images[0] !== undefined">
           <router-link :to="'/products/' + product.id">
             <ProductCard
@@ -24,8 +25,9 @@
             />
           </router-link>
         </span>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
+    </v-container>
   </div>
 </template>
 
