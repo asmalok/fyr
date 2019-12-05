@@ -11,9 +11,11 @@
     <v-container>
       <v-row align="center" justify="center">
         <v-col cols="12" md="6">
-          <v-card class="text-center" flat color="transparent"
-            >Contact Us by phone or by filling the form below</v-card
-          >
+          <v-card
+            class="text-center"
+            flat
+            color="transparent"
+          >Contact Us by phone or by filling the form below</v-card>
         </v-col>
       </v-row>
       <v-row align="center" justify="center">
@@ -43,8 +45,7 @@
               label="Message"
               name="message"
               required
-              >Message</v-textarea
-            >
+            >Message</v-textarea>
             <v-btn type="submit">Submit</v-btn>
           </v-card>
         </v-col>
@@ -71,6 +72,9 @@ export default {
       v => /.+@.+/.test(v) || "E-mail must be valid"
     ]
   }),
+  mounted() {
+    window.scroll(0, 0);
+  },
   methods: {
     encode(data) {
       return Object.keys(data)

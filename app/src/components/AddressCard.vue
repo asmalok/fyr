@@ -1,14 +1,28 @@
 <template>
-  <v-card class="mx-auto" max-width="344">
+  <v-card max-width="344" class="mb-5" > 
+    <!-- v-if="$store.state.address != '{}'" -->
     <v-card-text>
       <p class="black--text">
-        <span class="font-weight-bold">Customer Name</span>
-        <br />Apartment number, Street name <br />City, Province, Postal Code
-        <br />Country <br />Telephone number
+        <span class="font-weight-bold">Delivery Address</span>
+        <br />{{address.apt_number}}, {{address.street_name}}
+        <br />{{address.city}}, {{address.province}}, {{address.postal_code}}
+        <br />{{address.country}}
+        <br />{{address.phone}}
       </p>
     </v-card-text>
-    <v-card-actions>
+    <!-- <v-card-actions>
       <v-btn text color="deep-purple accent-4">Deliver to this address</v-btn>
-    </v-card-actions>
+    </v-card-actions> -->
   </v-card>
 </template>
+<script>
+import { mapState } from "vuex";
+export default {
+  data() {
+    return {};
+  },
+  computed: {
+    ...mapState(["address"])
+  }
+};
+</script>

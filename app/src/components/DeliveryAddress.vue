@@ -1,94 +1,78 @@
 <template>
   <div>
-    <v-dialog v-model="dialog" width="500">
+    <v-dialog width="500" v-model="dialog">
       <template v-slot:activator="{ on }">
-        <v-btn rounded color="rgba(0,0,0,0.8)" dark v-on="on"
-          >Create Delivery Address</v-btn
-        >
+        <v-btn rounded color="rgba(0,0,0,0.8)" dark v-on="on">Create Delivery Address</v-btn>
       </template>
-      <v-card ref="form" primary class="pa-5">
-        <v-card-text>
-          <v-text-field
-            ref="name"
-            v-model="name"
-            :rules="[() => !!name || 'This field is required']"
-            :error-messages="errorMessages"
-            label="Full Name"
-            placeholder="John Doe"
-            required
-          ></v-text-field>
-          <v-text-field
-            ref="address"
-            v-model="address"
-            :rules="[
-              () => !!address || 'This field is required',
-              () =>
-                (!!address && address.length <= 25) ||
-                'Address must be less than 25 characters',
-              addressCheck
-            ]"
-            label="Address Line"
-            placeholder="Snowy Rock Pl"
-            counter="25"
-            required
-          ></v-text-field>
-          <v-text-field
-            ref="city"
-            v-model="city"
-            :rules="[() => !!city || 'This field is required', addressCheck]"
-            label="City"
-            placeholder="El Paso"
-            required
-          ></v-text-field>
-          <v-text-field
-            ref="state"
-            v-model="state"
-            :rules="[() => !!state || 'This field is required']"
-            label="State/Province/Region"
-            required
-            placeholder="TX"
-          ></v-text-field>
-          <v-text-field
-            ref="zip"
-            v-model="zip"
-            :rules="[() => !!zip || 'This field is required']"
-            label="ZIP / Postal Code"
-            required
-            placeholder="79938"
-          ></v-text-field>
-          <v-autocomplete
-            ref="country"
-            v-model="country"
-            :rules="[() => !!country || 'This field is required']"
-            :items="countries"
-            label="Country"
-            placeholder="Select..."
-            required
-          ></v-autocomplete>
-        </v-card-text>
-        <v-card-actions>
-          <v-btn rounded color="rgba(0,0,0,0.8)" dark>Cancel</v-btn>
-          <v-spacer></v-spacer>
-          <v-slide-x-reverse-transition>
-            <v-tooltip v-if="formHasErrors" left>
-              <template v-slot:activator="{ on }">
-                <v-btn icon class="my-0" @click="resetForm" v-on="on">
-                  <v-icon>mdi-refresh</v-icon>
-                </v-btn>
-              </template>
-              <span>Refresh form</span>
-            </v-tooltip>
-          </v-slide-x-reverse-transition>
-          <v-btn rounded color="rgba(0,0,0,0.8)" dark @click="submit"
-            >Submit</v-btn
-          >
-        </v-card-actions>
-      </v-card>
+      <v-form v-model="valid" class="grey" @submit.prevent="saveAddress" ref="form">
+        <v-card primary class="pa-5">
+          <v-card-text>
+            <v-text-field
+              v-model="address.apt_number"
+              color="black"
+              :rules="nameRules"
+              label="Apartment Number"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="address.street_name"
+              color="black"
+              :rules="nameRules"
+              label="Street name"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="address.city"
+              color="black"
+              :rules="nameRules"
+              label="City"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="address.postal_code"
+              color="black"
+              :rules="nameRules"
+              label="ZIP / Postal Code"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="address.province"
+              color="black"
+              :rules="nameRules"
+              label="Province/Region"
+              required
+            ></v-text-field>
+            <v-autocomplete
+              v-model="address.country"
+              color="black"
+              :rules="nameRules"
+              :items="countries"
+              label="Country"
+              placeholder="Select..."
+              required
+            ></v-autocomplete>
+            <v-text-field
+              v-model="address.phone"
+              color="black"
+              :rules="nameRules"
+              label="Phone Number"
+              required
+            ></v-text-field>
+          </v-card-text>
+          <v-card-actions>
+            <v-btn rounded color="rgba(0,0,0,0.8)" dark @click="dialog = false">Cancel</v-btn>
+            <v-spacer></v-spacer>
+            <v-btn rounded color="rgba(0,0,0,0.8)" dark type="submit">Submit</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-form>
     </v-dialog>
   </div>
 </template>
 
 <script>
+import db from "./firebaseInit";
+import { mapState } from "vuex";
 export default {
   data: () => ({
     countries: [
@@ -299,58 +283,39 @@ export default {
       "Zambia",
       "Zimbabwe"
     ],
-    errorMessages: "",
-    name: null,
-    address: null,
+    valid: false,
+    apt_number: null,
+    street_name: null,
     city: null,
-    state: null,
-    zip: null,
+    postal_code: null,
+    province: null,
     country: null,
-    formHasErrors: false
+    phone: false,
+    dialog: false,
+    nameRules: [v => !!v || "This field is required"]
   }),
 
   computed: {
-    form() {
-      return {
-        name: this.name,
-        address: this.address,
-        city: this.city,
-        state: this.state,
-        zip: this.zip,
-        country: this.country
-      };
-    }
-  },
-
-  watch: {
-    name() {
-      this.errorMessages = "";
-    }
+    ...mapState(["uid", "address"])
   },
 
   methods: {
-    addressCheck() {
-      this.errorMessages =
-        this.address && !this.name ? "Hey! I'm required" : "";
-
-      return true;
-    },
-    resetForm() {
-      this.errorMessages = [];
-      this.formHasErrors = false;
-
-      Object.keys(this.form).forEach(f => {
-        this.$refs[f].reset();
-      });
-    },
-    submit() {
-      this.formHasErrors = false;
-
-      Object.keys(this.form).forEach(f => {
-        if (!this.form[f]) this.formHasErrors = true;
-
-        this.$refs[f].validate(true);
-      });
+    saveAddress() {
+      if (this.$refs.form.validate()) {
+        const THIS = this;
+        db.collection("address")
+          .doc(this.uid)
+          .set(THIS.address)
+          .then(address => {
+            console.log("Address added to database: ", address);
+            THIS.dialog = false;
+            THIS.$refs.form.reset();
+            THIS.$router.push("/checkout");
+          })
+          .catch(error => {
+            console.log("Error adding products: ", error);
+          });
+      }
     }
   }
 };

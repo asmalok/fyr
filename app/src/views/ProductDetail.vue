@@ -33,6 +33,9 @@ export default {
   computed: {
     ...mapState(["uid"])
   },
+  mounted() {
+    window.scroll(0,0)
+  },
   created() {
     db.collection("products")
       .orderBy("name")
@@ -72,6 +75,7 @@ export default {
         .catch(error => {
           console.log("Error adding products: ", error);
         });
+        this.$store.dispatch('getCart', this.uid)
     }
   }
 };

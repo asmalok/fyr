@@ -1,8 +1,7 @@
 <template>
-  <v-card class="text-center" max-width="400" hover flat color="transparent">
+  <v-card class="text-center" max-width="300" hover flat color="transparent">
     <v-img
       class="white--text"
-      contain
       height="200px"
       :src="product_image"
       :lazy-src="product_image"

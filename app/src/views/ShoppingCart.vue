@@ -72,6 +72,7 @@ export default {
         .collection("products")
         .doc(product_id)
         .delete();
+        this.$store.dispatch('getCart', this.uid)
     }
   }
 };

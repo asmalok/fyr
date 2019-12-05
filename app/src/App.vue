@@ -2,7 +2,7 @@
   <v-app class="primary">
     <Header />
     <div class>
-      <v-content app>
+      <v-content app class="primary">
         <router-view />
       </v-content>
     </div>
@@ -36,6 +36,7 @@ export default {
         THIS.$store.commit("TOGGLE_LOGGED_IN");
         const uid = user.uid;
         THIS.$store.dispatch("getCart", uid);
+        THIS.$store.dispatch("getAddress", uid);
 
         console.log("signed in");
       } else {

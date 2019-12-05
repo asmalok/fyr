@@ -1,21 +1,25 @@
 const functions = require("firebase-functions");
 const stripe = require("stripe")("sk_test_ZxdMLN8pmsLfOyF4u8WIeKuk00LXy4AZIG");
+const cors = require('cors')({origin: true});
+
+
+
+
 
 exports.Charge = functions.https.onRequest(async (req, res) => {
-  const token = req.body.stripeToken; // Using Express
-  const totalAmount = parseInt(req.body.amount);
-  return charge(totalAmount, token);
-});
-
-async function charge(amount, token) {
+  const customer_id = req.body.customer_id; // Using Express
+  const amount = parseInt(req.body.amount);
   const charge = await stripe.charges.create({
     amount: amount,
     currency: "cad",
     // description: "Example charge",
-    source: token
+    customer: customer_id
   });
-  return charge;
-}
+  cors(req, res, () => {
+    res.json(charge)
+  })
+});
+
 exports.CreateCustomer = functions.https.onRequest(async (req, res) => {
   const token = req.body.stripeToken; // Using Express
   const email = req.body.email;
@@ -23,5 +27,7 @@ exports.CreateCustomer = functions.https.onRequest(async (req, res) => {
     source: token,
     email: email,
   });
+  cors(req, res, () => {
   res.json(customer)
+})
 });

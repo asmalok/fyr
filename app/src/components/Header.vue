@@ -1,12 +1,6 @@
 <template>
   <v-card flat>
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-      temporary
-      disable-resize-watcher
-      class="pt-4"
-    >
+    <v-navigation-drawer v-model="drawer" app temporary disable-resize-watcher class="pt-4">
       <v-list>
         <span class="display-3 pa-3">F.Y.R</span>
         <v-list-item-group>
@@ -14,28 +8,16 @@
             <v-list-item-title class="text-uppercase">Home</v-list-item-title>
           </v-list-item>
 
-          <v-list-item @click="handleClick('/products')">
-            <v-list-item-title class="text-uppercase"
-              >Products</v-list-item-title
-            >
-          </v-list-item>
-
           <v-list-item @click="handleClick('/howitworks')">
-            <v-list-item-title class="text-uppercase"
-              >How it works</v-list-item-title
-            >
+            <v-list-item-title class="text-uppercase">How it works</v-list-item-title>
           </v-list-item>
 
-          <v-list-item @click="handleClick('/about')">
-            <v-list-item-title class="text-uppercase"
-              >About Us</v-list-item-title
-            >
+          <v-list-item @click="handleClick('/products')">
+            <v-list-item-title class="text-uppercase">Products</v-list-item-title>
           </v-list-item>
 
           <v-list-item @click="handleClick('/contact')">
-            <v-list-item-title class="text-uppercase"
-              >Contact Us</v-list-item-title
-            >
+            <v-list-item-title class="text-uppercase">Contact</v-list-item-title>
           </v-list-item>
 
           <span v-if="$store.state.logged_in === false">
@@ -69,10 +51,7 @@
     </v-navigation-drawer>
 
     <v-app-bar prominent flat fixed app color="rgba(0,0,0,0.8)" dark>
-      <v-app-bar-nav-icon
-        class="hidden-md-and-up"
-        @click="drawer = !drawer"
-      ></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-toolbar-title class="text-center mx-auto" @click="handleClick('/')">
         <span class="display-3">F.Y.R</span>
@@ -82,16 +61,11 @@
 
       <!-- <template v-slot:extension> -->
       <div class="pt-10 pl-10 ml-10">
-        <v-tabs
-          color="white"
-          class="hidden-sm-and-down"
-          background-color="transparent"
-        >
+        <v-tabs color="white" class="hidden-sm-and-down" background-color="transparent">
           <v-tab to="/">Home</v-tab>
-          <v-tab to="/products">Products</v-tab>
           <v-tab to="/howitworks">How it works</v-tab>
-          <v-tab to="/about">About Us</v-tab>
-          <v-tab to="/contact">Contact Us</v-tab>
+          <v-tab to="/products">Products</v-tab>
+          <v-tab to="/contact">Contact</v-tab>
         </v-tabs>
       </div>
       <!-- </template> -->
@@ -106,12 +80,7 @@
 
           <v-btn text @click="handleClick('/shopping_cart')">
             <!-- <v-icon small @click="handleClick('/shopping_cart')">fas fa-shopping-cart</v-icon> -->
-            <v-badge
-              v-if="shopping_cart_items.length"
-              left
-              color="red"
-              v-model="show"
-            >
+            <v-badge v-if="shopping_cart_items.length" left color="red" v-model="show">
               <template v-slot:badge>
                 <span>{{ shopping_cart_items.length }}</span>
               </template>

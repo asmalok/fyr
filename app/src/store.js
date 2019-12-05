@@ -11,7 +11,16 @@ export default new Vuex.Store({
     shopping_cart_items: [],
     uid: null,
     logged_in: false,
-    total_amount: 0
+    total_amount: 0,
+    address: {
+       apt_number: null,
+            street_name: null,
+            city: null,
+            postal_code: null,
+            province: null,
+            country: null,
+            phone: null
+    }
   },
   mutations: {
     SHOW_SIGNUP_FORM(state) {
@@ -31,6 +40,9 @@ export default new Vuex.Store({
     },
     GET_CART(state, payload) {
       state.shopping_cart_items = payload;
+    },
+    GET_ADDRESS(state, data) {
+      state.address = data;
     }
   },
   actions: {
@@ -43,7 +55,7 @@ export default new Vuex.Store({
           allProducts.forEach(product => {
             db.collection("products")
               .doc(product.id)
-              .onSnapshot(product => {
+              .get().then(product => {
                 const data = {
                   id: product.id,
                   name: product.data().name,
@@ -55,8 +67,24 @@ export default new Vuex.Store({
                 };
                 array.push(data);
               });
+            });
             context.commit("GET_CART", array);
-          });
+        });
+    },
+    getAddress({ commit }, user_id) {
+      db.collection("address")
+        .doc(user_id)
+        .onSnapshot(address => {
+          const data = {
+            apt_number: address.data().apt_number,
+            street_name: address.data().street_name,
+            city: address.data().city,
+            postal_code: address.data().postal_code,
+            province: address.data().province,
+            country: address.data().country,
+            phone: address.data().phone
+          };
+          commit("GET_ADDRESS", data);
         });
     },
     set_uid(context, payload) {

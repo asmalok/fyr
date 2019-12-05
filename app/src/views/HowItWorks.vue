@@ -1,5 +1,5 @@
 <template>
-  <v-card class="pb-5" color="transparent">
+  <v-card flat class="pb-5" color="primary">
     <v-img
       src="https://d24xw9xsv7y3uu.cloudfront.net/JjzlElfB_tablet_pico_1bhk_desktop.jpg"
       height="600"
@@ -41,6 +41,9 @@ import Services from "@/components/Services.vue";
 export default {
   components: {
     Services
+  },
+  mounted() {
+    window.scroll(0,0)
   }
 };
 </script>
