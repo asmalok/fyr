@@ -1,12 +1,18 @@
 <template>
   <div>
     <v-carousel hide-delimiters show-arrows-on-hover cycle>
-      <v-carousel-item eager v-for="(item, i) in items" :key="i" :src="item.src"></v-carousel-item>
+      <v-carousel-item
+        eager
+        v-for="(item, i) in items"
+        :key="i"
+        :src="item.src"
+      ></v-carousel-item>
     </v-carousel>
   </div>
 </template>
 
 <script>
+/* eslint-disable */
 export default {
   data() {
     return {

@@ -1,5 +1,10 @@
 <template>
-  <v-card flat class="text-center ma-10 mx-auto" color="transparent" max-width="700">
+  <v-card
+    flat
+    class="text-center ma-10 mx-auto"
+    color="transparent"
+    max-width="700"
+  >
     <v-layout justify-center align-center>
       <v-flex>
         <v-carousel
@@ -16,13 +21,16 @@
         <p>{{ name }}</p>
         <p>${{ price }}/month</p>
         <p>{{ description }}</p>
-        <v-btn rounded color="rgba(0,0,0,0.8)" dark @click="addToCart">Add to cart</v-btn>
+        <v-btn rounded color="rgba(0,0,0,0.8)" dark @click="addToCart"
+          >Add to cart</v-btn
+        >
       </v-flex>
     </v-layout>
   </v-card>
 </template>
 
 <script>
+/* eslint-disable */
 import swal from "sweetalert";
 import db from "../components/firebaseInit";
 import { mapState } from "vuex";

@@ -7,6 +7,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import Checkout from "@/components/Checkout.vue";
 import AddressCard from "@/components/AddressCard";
 import DeliveryAddress from "@/components/DeliveryAddress";

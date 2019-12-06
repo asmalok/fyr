@@ -3,17 +3,43 @@
     <v-container>
       <v-row>
         <v-col cols="12" md="4">
-          <v-text-field v-model="name" :rules="generalRule" label="Product name" required></v-text-field>
-          <v-text-field v-model="price" :rules="generalRule" label="Price" required type="number"></v-text-field>
+          <v-text-field
+            v-model="name"
+            :rules="generalRule"
+            label="Product name"
+            required
+          ></v-text-field>
+          <v-text-field
+            v-model="price"
+            :rules="generalRule"
+            label="Price"
+            required
+            type="number"
+          ></v-text-field>
           <v-text-field
             v-model="images"
             :rules="generalRule"
             label="Images (in quoutes & separated by a comma if multiple)"
             required
           ></v-text-field>
-          <v-text-field v-model="description" :rules="generalRule" label="Description" required></v-text-field>
-          <v-text-field v-model="category" :rules="generalRule" label="Category" required></v-text-field>
-          <v-text-field v-model="type" :rules="generalRule" label="Type" required></v-text-field>
+          <v-text-field
+            v-model="description"
+            :rules="generalRule"
+            label="Description"
+            required
+          ></v-text-field>
+          <v-text-field
+            v-model="category"
+            :rules="generalRule"
+            label="Category"
+            required
+          ></v-text-field>
+          <v-text-field
+            v-model="type"
+            :rules="generalRule"
+            label="Type"
+            required
+          ></v-text-field>
         </v-col>
       </v-row>
       <v-btn color="blue darken-1" text type="submit">Add</v-btn>
@@ -23,6 +49,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import db from "../components/firebaseInit";
 export default {
   data: () => ({

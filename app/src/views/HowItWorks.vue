@@ -5,7 +5,9 @@
       height="400"
     ></v-img>
     <v-card class="pa-10" flat>
-      <v-card-title class="justify-center">4 simple steps to make your house a home!</v-card-title>
+      <v-card-title class="justify-center"
+        >4 simple steps to make your house a home!</v-card-title
+      >
       <v-layout row wrap class="mx-auto text-center">
         <v-flex md6 sm12 xs12 class="pa-10">
           <div>
@@ -37,10 +39,10 @@
 </template>
 
 <script>
+/* eslint-disable */
 export default {
   mounted() {
     window.scroll(0, 0);
   }
 };
 </script>
-

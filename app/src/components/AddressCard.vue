@@ -12,20 +12,18 @@
         <br />
         {{ address.apt_number }}, {{ address.street_name }}
         <br />
-        {{
-        address.city
-        }}, {{ address.province }}, {{ address.postal_code }}
+        {{ address.city }}, {{ address.province }}, {{ address.postal_code }}
         <br />
-        {{
-        address.country
-        }}
+        {{ address.country }}
         <br />
         {{ address.phone }}
       </p>
     </v-card-text>
   </v-card>
 </template>
+
 <script>
+/* eslint-disable */
 import { mapState } from "vuex";
 export default {
   data() {
