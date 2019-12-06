@@ -9,17 +9,20 @@
     <v-card-text>
       <p class="black--text">
         <span class="font-weight-bold">Delivery Address</span>
-        <br />{{ address.apt_number }}, {{ address.street_name }} <br />{{
-          address.city
-        }}, {{ address.province }}, {{ address.postal_code }} <br />{{
-          address.country
+        <br />
+        {{ address.apt_number }}, {{ address.street_name }}
+        <br />
+        {{
+        address.city
+        }}, {{ address.province }}, {{ address.postal_code }}
+        <br />
+        {{
+        address.country
         }}
-        <br />{{ address.phone }}
+        <br />
+        {{ address.phone }}
       </p>
     </v-card-text>
-    <!-- <v-card-actions>
-      <v-btn text color="deep-purple accent-4">Deliver to this address</v-btn>
-    </v-card-actions> -->
   </v-card>
 </template>
 <script>

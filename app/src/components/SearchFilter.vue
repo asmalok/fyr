@@ -1,11 +1,7 @@
 <template>
   <v-card>
     <v-card-title>
-      <v-text-field
-        v-model="search"
-        append-icon="fas fa-search"
-        label="Search"
-      ></v-text-field>
+      <v-text-field v-model="search" append-icon="fas fa-search" label="Search"></v-text-field>
     </v-card-title>
   </v-card>
 </template>

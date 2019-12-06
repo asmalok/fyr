@@ -10,9 +10,7 @@
     <div>
       <form method="post" id="payment-form">
         <div class="form-row">
-          <label for="card-element" class="font-weight-bold"
-            >Credit or debit card</label
-          >
+          <label for="card-element" class="font-weight-bold">Credit or debit card</label>
           <div id="card-element">
             <!-- A Stripe Element will be inserted here. -->
           </div>
@@ -21,9 +19,7 @@
           <div id="card-errors" role="alert"></div>
         </div>
 
-        <v-btn class="mt-5" type="submit" rounded color="rgba(0,0,0,0.8)" dark
-          >Submit Payment</v-btn
-        >
+        <v-btn class="mt-5" type="submit" rounded color="rgba(0,0,0,0.8)" dark>Submit Payment</v-btn>
       </form>
     </div>
   </v-card>

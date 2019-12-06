@@ -9,16 +9,9 @@
   <div>
     <v-dialog width="500" v-model="dialog">
       <template v-slot:activator="{ on }">
-        <v-btn rounded color="rgba(0,0,0,0.8)" dark v-on="on"
-          >Edit Delivery Address</v-btn
-        >
+        <v-btn rounded color="rgba(0,0,0,0.8)" dark v-on="on">Edit Delivery Address</v-btn>
       </template>
-      <v-form
-        v-model="valid"
-        class="grey"
-        @submit.prevent="saveAddress"
-        ref="form"
-      >
+      <v-form v-model="valid" class="grey" @submit.prevent="saveAddress" ref="form">
         <v-card primary class="pa-5">
           <v-card-text>
             <v-text-field
@@ -74,13 +67,9 @@
             ></v-text-field>
           </v-card-text>
           <v-card-actions>
-            <v-btn rounded color="rgba(0,0,0,0.8)" dark @click="dialog = false"
-              >Cancel</v-btn
-            >
+            <v-btn rounded color="rgba(0,0,0,0.8)" dark @click="dialog = false">Cancel</v-btn>
             <v-spacer></v-spacer>
-            <v-btn rounded color="rgba(0,0,0,0.8)" dark type="submit"
-              >Submit</v-btn
-            >
+            <v-btn rounded color="rgba(0,0,0,0.8)" dark type="submit">Submit</v-btn>
           </v-card-actions>
         </v-card>
       </v-form>
@@ -327,6 +316,7 @@ export default {
           .then(address => {
             console.log("Address added to database: ", address);
             THIS.dialog = false;
+            THIS.$router.go();
             THIS.$refs.form.reset();
             THIS.$router.push("/checkout");
           })

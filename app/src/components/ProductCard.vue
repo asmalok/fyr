@@ -1,11 +1,6 @@
 <template>
   <v-card class="text-center" hover flat color="transparent">
-    <v-img
-      class="white--text"
-      height="200px"
-      :src="product_image"
-      :lazy-src="product_image"
-    ></v-img>
+    <v-img class="white--text" height="200px" :src="product_image" :lazy-src="product_image"></v-img>
     <v-card-title class="justify-center">{{ product_name }}</v-card-title>
 
     <v-card-text>

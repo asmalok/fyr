@@ -11,13 +11,7 @@
                   {{ item.name }}
                   <div>${{ item.price }}/month</div>
                 </span>
-                <v-btn
-                  text
-                  small
-                  fab
-                  class="float-right"
-                  @click="deleteFromCart(item.id)"
-                >
+                <v-btn text small fab class="float-right" @click="deleteFromCart(item.id)">
                   <v-icon color="red" small>fas fa-trash</v-icon>
                 </v-btn>
               </div>
@@ -25,9 +19,7 @@
           </v-layout>
           <v-divider></v-divider>
         </v-card>
-        <div class="mt-3 font-weight-bold">
-          Total amount: ${{ total }}/month
-        </div>
+        <div class="mt-3 font-weight-bold">Total amount: ${{ total }}/month</div>
       </v-col>
     </v-row>
     <v-row>
@@ -38,8 +30,7 @@
           dark
           to="/checkout"
           @click="paymentHandler(total)"
-          >Checkout</v-btn
-        >
+        >Checkout</v-btn>
       </v-col>
     </v-row>
   </div>

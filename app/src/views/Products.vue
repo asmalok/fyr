@@ -3,24 +3,13 @@
     <v-card flat class="pa-5" color="transparent">
       <v-row align="center" justify="center">
         <v-col sm="12" md="6">
-          <v-text-field
-            v-model="search"
-            append-icon="fas fa-search"
-            label="Search"
-            color="black"
-          ></v-text-field>
+          <v-text-field v-model="search" append-icon="fas fa-search" label="Search" color="black"></v-text-field>
         </v-col>
       </v-row>
     </v-card>
     <v-container>
       <v-row wrap>
-        <v-col
-          sm="6"
-          lg="4"
-          xs="12"
-          v-for="(product, i) in filtereProducts"
-          :key="i"
-        >
+        <v-col sm="6" lg="4" xs="12" v-for="(product, i) in filtereProducts" :key="i">
           <span v-if="product.images[0] !== undefined">
             <router-link :to="'/products/' + product.id">
               <ProductCard
