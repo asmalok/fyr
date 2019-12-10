@@ -1,3 +1,9 @@
+<!-- Component name: Services.vue
+     Used in: /views/Hero.vue
+     Description: This component gives a brief description on the landing page 
+     and provides links to sign-up and sign-in.
+ -->
+
 <template>
   <v-card flat class="pa-5">
     <v-card-title class="justify-center display-2"

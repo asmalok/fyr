@@ -1,3 +1,7 @@
+<!-- Component name: Hero.vue
+     Used in: /views/Home.vue
+     Description: This component has a carousel of images for the landing page. 
+ -->
 <template>
   <div>
     <v-carousel hide-delimiters show-arrows-on-hover cycle>

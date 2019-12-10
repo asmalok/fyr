@@ -1,3 +1,11 @@
+<!-- Component name: Header.vue
+     Used in: /src/App.vue
+     Description: This is the header that contains the links to all the different
+     pages in the website. The header menu items collapse into a hamburger icon 
+     in order to make it responsive. The toggle between the sign-in and sign-out
+     is also included in the header. 
+ -->
+
 <template>
   <v-card flat>
     <v-navigation-drawer

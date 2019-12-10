@@ -1,3 +1,10 @@
+<!-- Component name: Signin.vue
+     Used in: /components/Header.vue
+     Description: This component is used in the Header component. It is a dialog 
+     that pops up when the sign-in icon is clicked. The authentication is done by 
+     Firebase.
+ -->
+
 <template>
   <v-card primary>
     <v-form v-model="valid" @submit.prevent="login" ref="form">

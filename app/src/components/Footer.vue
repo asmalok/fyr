@@ -1,6 +1,6 @@
-<!-- Component name: 
-     Used in:
-     Description: 
+<!-- Component name: Footer.vue
+     Used in: /src/App.vue
+     Description: This is the footer at the bottom of every page on the website.
  -->
 
 <template>
@@ -10,13 +10,10 @@
         <v-col class="text-center" cols="12">
           {{ new Date().getFullYear() }}
           <strong>Furniture You Rent</strong>
-        </v-col>
-        <v-col class="text-center" cols="12">
-          <div class="font-weight-light">
-            Furniture You Rent is a fictional company created for the purpose of
-            making an e-commerce website as part of the university course
-            COMP4983
-          </div>
+          <br />
+          <span class="font-weight-thin"
+            >FYR is a fictional company created for COMP4983</span
+          >
         </v-col>
       </v-row>
     </v-footer>

@@ -1,3 +1,10 @@
+<!-- Component name: Signup.vue
+     Used in: /components/Header.vue
+     Description: This component is used in the Header component. It is a dialog 
+     that pops up when the sign-up icon is clicked. It signs the user up and adds
+     their information into the database. The authentication is done by Firebase.
+ -->
+
 <template>
   <v-card primary>
     <v-form v-model="valid" @submit.prevent="signUpUser" ref="form">

@@ -1,3 +1,10 @@
+<!-- Component name: ProductCard.vue
+     Used in: /views/Products.vue
+     Description: This is an individual product card that has all the information of
+     the product and is used in a loop in the products page to show all the products
+     offered. 
+ -->
+
 <template>
   <v-card class="text-center" hover flat color="transparent">
     <v-img

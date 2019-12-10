@@ -1,3 +1,9 @@
+<!-- Component name: SearchFilter.vue
+     Used in: /views/Products.vue
+     Description: This component filters through the products in the database 
+     by the product name and returns the filtered products for the user to view.
+ -->
+
 <template>
   <v-card>
     <v-card-title>
